@@ -7,14 +7,15 @@ function updateShoppingList(){
         event.preventDefault();
         const item = ($(this).find('.js-shopping-list-entry').val());
         $('.shopping-list').append(generateNewItemHTML(item));
+        $('.js-shopping-list-entry').val('');
     });
     //check item
     $('.shopping-list').on('click','.shopping-item-toggle',( function(event) {
         $(this).closest('li').find('.shopping-item').toggleClass('shopping-item__checked');
     }));
     //remove item
-    $('.shopping-list').on('click', 'shopping-item-delete', (function (event){
-        $(this).clost('li').
+    $('.shopping-list').on('click', '.shopping-item-delete', (function (event){
+        $(this).closest('li').remove();
     }));
 }
 
